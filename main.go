@@ -97,11 +97,11 @@ func main() {
 	books = append(books, Book{ID: "2", Isbn: "454555", Title: "Book Two", Author: &Author{Firstname: "Steve", Lastname: "Smith"}})
 
 	// Route handles & endpoints
-	r.HandleFunc("/books", getBooks).Methods("GET")
-	r.HandleFunc("/books/{id}", getBook).Methods("GET")
-	r.HandleFunc("/books", createBook).Methods("POST")
-	r.HandleFunc("/books/{id}", updateBook).Methods("PUT")
-	r.HandleFunc("/books/{id}", deleteBook).Methods("DELETE")
+	r.HandleFunc("/api/v1/books", getBooks).Methods("GET")
+	r.HandleFunc("/api/v1/books/{id}", getBook).Methods("GET")
+	r.HandleFunc("/api/v1/books", createBook).Methods("POST")
+	r.HandleFunc("/api/v1/books/{id}", updateBook).Methods("PUT")
+	r.HandleFunc("/api/v1/books/{id}", deleteBook).Methods("DELETE")
 
 	// Start server
 	log.Fatal(http.ListenAndServe(":8000", r))
